@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Block direct access to data/
+RewriteRule ^data/ - [F,L]
+
+# Route to public/index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php [QSA,L]
